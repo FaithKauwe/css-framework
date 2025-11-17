@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layers</title>
+  <style>
+
+/* two layers A and B. Layer B will override layer A since it comes later */
+@layer A, B;
+
+@layer A {
+  /* Specificity 0-2 this rule is more specific */
+  button.btn {
+    color: red;
+  }
+}
+
+@layer B {
+  /* Specificity 0-1 but comes later in the layer order */
+  .btn {
+    color: blue;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <button class="btn">Hello World btn</button>
+
+</body>
+</html>
