@@ -14,56 +14,74 @@
     */
 
     :root {
+      /* TODO: Define your base font size */
       --font-base-size: 16px;
+      /* TODO: Set the ratio of font sizes */
       --font-ratio: 1.5;
+      /* TODO: Set the font family */
       --font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
     body {
       font-family: var(--font-family);
       font-size: var(--font-base-size);
+      /* TODO: Adjust the line height, 
+      pay attention to the space between lines 
+      in paragraphs!  */
       line-height: 1.5;
     }
 
-    /* Make the font size for headings a ratio */
-    h1 {
-      /* 121.5 */
-      font-size: calc(var(--font-base-size) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio));
-      /* Adjust the vertical margins */
+    h1, h2, h3, h4, h5, h6, p {
+      /* TODO: Adjust the vertical margin for all 
+      headings and paragraphs. You will want to apply 
+      this other block elements in your final work! */
       margin: 1rem 0;
-      /* Set the line-height to the nearest whole number multiple of the base font-size */
-      
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      /* TODO: Adjust the line-height for all headings */
+      line-height: 1;
+    }
+
+    /* Make the font size for headings a ratio. 
+    Note: You're not required to use a ratio of sizes. 
+    You can instead set the size for each heading to 
+    different ratio. This may produce a harmonious design. 
+    I commented the font sizes I got using default values 
+    of 16px and ratio of 1.5. You may want to calculate 
+    the font sizes from the numebrs you choose. */
+
+    h1 {
+      /* 121.5px */
+      font-size: calc(var(--font-base-size) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio));
+      /* TODO: You may want to consider adjusting margin
+      and line-height for individual headings. */
     }
 
     h2 {
       /* 81px */
       font-size: calc(var(--font-base-size) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio));
-      margin: 1rem 0;
     }
 
     h3 {
       /* 54px */
       font-size: calc(var(--font-base-size) * var(--font-ratio) * var(--font-ratio) * var(--font-ratio));
-      margin: 1rem 0;
     }
 
     h4 {
       /* 36px */
       font-size: calc(var(--font-base-size) * var(--font-ratio) * var(--font-ratio));
-      margin: 1rem 0;
     }
-
-    /* Each of the larger headings is one ratio larger. This was my scheme, you can use this or come up with one of your own! */
+    
     h5 {
       /* 24px */
       font-size: calc(var(--font-base-size) * var(--font-ratio));
-      margin: 1rem 0;
     }
 
     /* h6 is the font size */
     h6 {
+      /* 16px */
       font-size: 1rem;
-      margin: 1rem 0;
     }
 
     .row {

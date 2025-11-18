@@ -2,6 +2,8 @@
 
 This repo contains example files for reference. 
 
+look through each of the files below. Read the comments and follow the instructions marked "TODO."
+
 - [index.html] - use this file to test your css framework. Check that all of the elements have a reasonable appearance and nothing is left un styled. 
 - [layers.html] - use this to study and understand the concept of layers. 
 - [headings.html] - Use this to experiment with head sizes, and the idea of calculating heading sizes using a ratio. 
