@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* color families, each starts with a base color -3, then uses relative OKLCH to create darker shades -1, -2 
+  (sybtracting from the lightness) and lighter shades -4, -5 (adding to the lightness) */
+  --color-gray-3: oklch(0.50 0.01 240);
+  --color-gray-1: oklch(from var(--color-gray-3) calc(l - 0.35) c h);
+  --color-gray-2: oklch(from var(--color-gray-3) calc(l - 0.18) c h);
+  --color-gray-4: oklch(from var(--color-gray-3) calc(l + 0.25) c h);
+  --color-gray-5: oklch(from var(--color-gray-3) calc(l + 0.45) c h);
+
+  --color-ice-3: oklch(0.75 0.08 240);
+  --color-ice-1: oklch(from var(--color-ice-3) calc(l - 0.45) c h);
+  --color-ice-2: oklch(from var(--color-ice-3) calc(l - 0.22) c h);
+  --color-ice-4: oklch(from var(--color-ice-3) calc(l + 0.15) c h);
+  --color-ice-5: oklch(from var(--color-ice-3) calc(l + 0.20) c h);
+
+  --color-navy-3: oklch(0.35 0.05 250);
+  --color-navy-1: oklch(from var(--color-navy-3) calc(l - 0.20) c h);
+  --color-navy-2: oklch(from var(--color-navy-3) calc(l - 0.10) c h);
+  --color-navy-4: oklch(from var(--color-navy-3) calc(l + 0.15) c h);
+  --color-navy-5: oklch(from var(--color-navy-3) calc(l + 0.30) c h);
+
+  --color-silver-3: oklch(0.70 0.02 240);
+  --color-silver-1: oklch(from var(--color-silver-3) calc(l - 0.40) c h);
+  --color-silver-2: oklch(from var(--color-silver-3) calc(l - 0.20) c h);
+  --color-silver-4: oklch(from var(--color-silver-3) calc(l + 0.15) c h);
+  --color-silver-5: oklch(from var(--color-silver-3) calc(l + 0.25) c h);
+
+  --color-lavender-3: oklch(0.70 0.10 290);
+  --color-lavender-1: oklch(from var(--color-lavender-3) calc(l - 0.40) c h);
+  --color-lavender-2: oklch(from var(--color-lavender-3) calc(l - 0.20) c h);
+  --color-lavender-4: oklch(from var(--color-lavender-3) calc(l + 0.15) c h);
+  --color-lavender-5: oklch(from var(--color-lavender-3) calc(l + 0.23) c h);
+/* semantic names are aliases which point to specific colors from the families, makes it easy
+to changeout the colors for different themes */
+  --color-bg: var(--color-ice-5);
+  --color-fg: var(--color-navy-1);
+  --color-primary: var(--color-ice-3);
+  --color-secondary: var(--color-lavender-3);
+  --color-accent: var(--color-ice-2);
+  --color-border: var(--color-silver-3);
+  --color-link: var(--color-ice-2);
+  --color-link-hover: var(--color-ice-1);
+
+  --font-family-display: 'Cormorant Garamond', Georgia, serif;
+  --font-family-body: 'Montserrat', system-ui, -apple-system, sans-serif;
+  
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+  
+ /* each heading size is 1.4x larger than the one below it, make sit easy to change the whole scale */
+  --font-ratio: 1.4;
+  --font-size-h6: var(--font-size-base);
+  --font-size-h5: calc(var(--font-size-base) * var(--font-ratio));
+  --font-size-h4: calc(var(--font-size-h5) * var(--font-ratio));
+  --font-size-h3: calc(var(--font-size-h4) * var(--font-ratio));
+  --font-size-h2: calc(var(--font-size-h3) * var(--font-ratio));
+  --font-size-h1: calc(var(--font-size-h2) * var(--font-ratio));
+  
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --line-height-tight: 1.2;
+  --line-height-base: 1.6;
+  --line-height-relaxed: 1.8;
+
+ /* spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+ /* border radius for rounded corners */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+ /* shadows to add depth and focus to elements */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-ice: 0 4px 12px 0 rgba(100, 150, 200, 0.2); /* speical ice blue glow effect */
+/* transitions for smooth animations */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 250ms ease-in-out;
+  --transition-slow: 350ms ease-in-out;
+}
+

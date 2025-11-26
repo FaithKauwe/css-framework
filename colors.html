@@ -24,77 +24,38 @@
       /* Use oklch colors for bonus points! OKLCH colors have an advantage 
       in that these colors don't change value as the color changes. */
 
-      /* TODO: Choose your darkest color, it may not be black, it should be dark!
-      We need some contrast! */
-      --color-gray-1: oklch(from #111 l c h);
+      --color-gray-3: oklch(0.50 0.01 240);
+      --color-gray-1: oklch(from var(--color-gray-3) calc(l - 0.35) c h);
+      --color-gray-2: oklch(from var(--color-gray-3) calc(l - 0.18) c h);
+      --color-gray-4: oklch(from var(--color-gray-3) calc(l + 0.25) c h);
+      --color-gray-5: oklch(from var(--color-gray-3) calc(l + 0.45) c h);
 
-      /* You can generate colors from a base color using color-mix() 
-      or CSS relative colors, look at the examples below. 
-      Using these ideas generate a palette of colors. */
+      --color-ice-3: oklch(0.75 0.08 240);
+      --color-ice-1: oklch(from var(--color-ice-3) calc(l - 0.45) c h);
+      --color-ice-2: oklch(from var(--color-ice-3) calc(l - 0.22) c h);
+      --color-ice-4: oklch(from var(--color-ice-3) calc(l + 0.15) c h);
+      --color-ice-5: oklch(from var(--color-ice-3) calc(l + 0.20) c h);
 
-      /* Use color-mix() to define some tints and shades */
-      /* Create tints by adding white, and shades by adding black! */
-      /* Create two tints and two shades for each of your 5 colors */
+      --color-navy-3: oklch(0.35 0.05 250);
+      --color-navy-1: oklch(from var(--color-navy-3) calc(l - 0.20) c h);
+      --color-navy-2: oklch(from var(--color-navy-3) calc(l - 0.10) c h);
+      --color-navy-4: oklch(from var(--color-navy-3) calc(l + 0.15) c h);
+      --color-navy-5: oklch(from var(--color-navy-3) calc(l + 0.30) c h);
 
-      /* TODO: Generate 4 more relative gray colors. Here I added various 
-      amounts, 80% to 20%, of --color-gray-1 to white. */
-      --color-gray-2: color-mix(in oklch, var(--color-gray-1) 80%, white);
-      --color-gray-3: color-mix(in oklch, var(--color-gray-2) 60%, white);
-      --color-gray-4: color-mix(in oklch, var(--color-gray-3) 40%, white);
-      --color-gray-5: color-mix(in oklch, var(--color-gray-4) 20%, white);
+      --color-silver-3: oklch(0.70 0.02 240);
+      --color-silver-1: oklch(from var(--color-silver-3) calc(l - 0.40) c h);
+      --color-silver-2: oklch(from var(--color-silver-3) calc(l - 0.20) c h);
+      --color-silver-4: oklch(from var(--color-silver-3) calc(l + 0.15) c h);
+      --color-silver-5: oklch(from var(--color-silver-3) calc(l + 0.25) c h);
 
-      --color-bg: var(--color-gray-1);
-      --color-fg: var(--color-gray-5);
+      --color-lavender-3: oklch(0.70 0.10 290);
+      --color-lavender-1: oklch(from var(--color-lavender-3) calc(l - 0.40) c h);
+      --color-lavender-2: oklch(from var(--color-lavender-3) calc(l - 0.20) c h);
+      --color-lavender-4: oklch(from var(--color-lavender-3) calc(l + 0.15) c h);
+      --color-lavender-5: oklch(from var(--color-lavender-3) calc(l + 0.23) c h);
 
-      /* Lets do that again with a new color. This time I added black to get 
-      shades, and white to get tints. 
-
-      TODO: Change the color here. Adjust the amount of black and white to get 
-      a nice range. */
-      --color-primary-3: tomato;
-      --color-primary-1: color-mix(in oklch, var(--color-primary-3) 60%, black);
-      --color-primary-2: color-mix(in oklch, var(--color-primary-3) 80%, black);
-      --color-primary-4: color-mix(in oklch, var(--color-primary-3) 80%, white);
-      --color-primary-5: color-mix(in oklch, var(--color-primary-3) 60%, white);
-
-      /* Repeat the process! */
-      /* This time use relative color to generate some new colors. Look 
-      at the sample code below. We use the syntax: oklch(from someColor l c h)
-      Here we have components of the color and can apply math with calc(). 
-      In the example below, I subtracted 0.15 and 0.3 to get shades, and 
-      added 0.15 and 0.3 to get tints. Changing the lightness (l) shanges the 
-      value (light, dark) character of the color without changing the hue. 
-
-      TODO: Define a new color here and make some tints and shades. */
-      --color-secondary-3: cornflowerblue;
-      /* Create shades from an oklch color */
-      --color-secondary-2: oklch(from var(--color-secondary-3) calc(l - 0.15) c h);
-      --color-secondary-1: oklch(from var(--color-secondary-3) calc(l - 0.3) c h);
-      /* Create tints from an oklch color */
-      --color-secondary-4: oklch(from var(--color-secondary-3) calc(l + 0.15) c h);
-      --color-secondary-5: oklch(from var(--color-secondary-3) calc(l + 0.3) c h);
-     
-      /* TODO: Define your fourth color. */
-      --color-tertiary-3: gold;
-      /* Create a relative color by removing the red component */
-      --color-tertiary-2: rgb(from tomato 0 g b / alpha);
-      /* Create a relative color by shifting the hue (might be better with oklch) */
-      --color-tertiary-1: hsl(from tomato calc(h - 45) s l / alpha);
-      /* Create a relative color changing the lightness and shifting the hue */
-      --color-tertiary-4: hsl(from tomato calc(h - 45) s calc(l - 20) / alpha);
-      /* Create a relative color by swapping components */
-      --color-tertiary-5: rgb(from tomato b r g / alpha);
-
-      /* TODO: Define a fifth color. Do this on your own! To see it in the chart, 
-      you'll need to add some divs below.  */
-
-      /* TODO: Decide which color system you will use: rgb, hsl, oklch. I used all of 
-      these in the example, you should use the same one throughout! */
-      
-      /* TODO: Use one system to generate tints and shades. 
-      Choose color-mix or relative color. Adjust your code to match. */
-
-      /* TODO: Move these colors into the tokens layer of your framework.  */
+      --color-bg: var(--color-ice-5);
+      --color-fg: var(--color-navy-1);
     }
 
     main {
@@ -123,23 +84,29 @@
     <div style="background-color: var(--color-gray-4);"></div>
     <div style="background-color: var(--color-gray-5);"></div>
     
-    <div style="background-color: var(--color-primary-1);"></div>
-    <div style="background-color: var(--color-primary-2);"></div>
-    <div style="background-color: var(--color-primary-3);"></div>
-    <div style="background-color: var(--color-primary-4);"></div>
-    <div style="background-color: var(--color-primary-5);"></div>
+    <div style="background-color: var(--color-ice-1);"></div>
+    <div style="background-color: var(--color-ice-2);"></div>
+    <div style="background-color: var(--color-ice-3);"></div>
+    <div style="background-color: var(--color-ice-4);"></div>
+    <div style="background-color: var(--color-ice-5);"></div>
     
-    <div style="background-color: var(--color-secondary-1);"></div>
-    <div style="background-color: var(--color-secondary-2);"></div>
-    <div style="background-color: var(--color-secondary-3);"></div>
-    <div style="background-color: var(--color-secondary-4);"></div>
-    <div style="background-color: var(--color-secondary-5);"></div>
+    <div style="background-color: var(--color-navy-1);"></div>
+    <div style="background-color: var(--color-navy-2);"></div>
+    <div style="background-color: var(--color-navy-3);"></div>
+    <div style="background-color: var(--color-navy-4);"></div>
+    <div style="background-color: var(--color-navy-5);"></div>
     
-    <div style="background-color: var(--color-tertiary-1);"></div>
-    <div style="background-color: var(--color-tertiary-2);"></div>
-    <div style="background-color: var(--color-tertiary-3);"></div>
-    <div style="background-color: var(--color-tertiary-4);"></div>
-    <div style="background-color: var(--color-tertiary-5);"></div>
+    <div style="background-color: var(--color-silver-1);"></div>
+    <div style="background-color: var(--color-silver-2);"></div>
+    <div style="background-color: var(--color-silver-3);"></div>
+    <div style="background-color: var(--color-silver-4);"></div>
+    <div style="background-color: var(--color-silver-5);"></div>
+    
+    <div style="background-color: var(--color-lavender-1);"></div>
+    <div style="background-color: var(--color-lavender-2);"></div>
+    <div style="background-color: var(--color-lavender-3);"></div>
+    <div style="background-color: var(--color-lavender-4);"></div>
+    <div style="background-color: var(--color-lavender-5);"></div>
     
   </main>
 </body>
