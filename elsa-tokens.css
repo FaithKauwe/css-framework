@@ -14,6 +14,7 @@
   --color-ice-2: oklch(from var(--color-ice-3) calc(l - 0.22) c h);
   --color-ice-4: oklch(from var(--color-ice-3) calc(l + 0.15) c h);
   --color-ice-5: oklch(from var(--color-ice-3) calc(l + 0.20) c h);
+  --color-ice-6: oklch(0.97 0.02 240);
 
   --color-navy-3: oklch(0.35 0.05 250);
   --color-navy-1: oklch(from var(--color-navy-3) calc(l - 0.20) c h);
@@ -34,7 +35,7 @@
   --color-lavender-5: oklch(from var(--color-lavender-3) calc(l + 0.23) c h);
 /* semantic names are aliases which point to specific colors from the families, makes it easy
 to changeout the colors for different themes */
-  --color-bg: var(--color-ice-5);
+  --color-bg: var(--color-ice-6);
   --color-fg: var(--color-navy-1);
   --color-primary: var(--color-ice-3);
   --color-secondary: var(--color-lavender-3);
