@@ -1,0 +1,408 @@
+/*
+  BEM NAMING CONVENTION RULES
+  
+  BEM stands for Block, Element, Modifier - a naming methodology that makes code more readable and maintainable.
+  
+  BLOCK: Standalone component (e.g., .btn, .card, .alert)
+    - Use lowercase, single words or hyphenated words
+    - Describes what it is, not what it looks like
+    - Examples: .btn, .card, .alert-box
+  
+  ELEMENT: Part of a block that has no standalone meaning (double underscore __)
+    - Format: .block__element
+    - Examples: .card__header, .card__body, .btn__icon
+    - Cannot exist outside of its block
+  
+  MODIFIER: Different state or version of a block or element (double dash --)
+    - Format: .block--modifier or .block__element--modifier
+    - Examples: .btn--primary, .card--frost, .alert--danger
+    - Should be used alongside the base class: <button class="btn btn--primary">
+  
+  USAGE EXAMPLES:
+    
+    Button with modifier:
+      <button class="btn btn--primary">Click Me</button>
+    
+    Card with elements and modifier:
+      <div class="card card--frost">
+        <div class="card__header">Title</div>
+        <div class="card__body">Content</div>
+      </div>
+    
+    Badge inside button:
+      <button class="btn">
+        Messages <span class="badge badge--danger">3</span>
+      </button>
+  
+  GUIDELINES:
+    - Never chain elements: .block__element__element (wrong!)
+    - Use only one level of elements: .card__header (correct)
+    - Modifiers are optional variations, not required
+    - All components use design tokens (no hard-coded values)
+*/
+
+/* this is the components layer and is not classless, developers must add and apply elsa 
+classes to their html, using the BEM structure for class names */
+/* base class for buttons */
+.btn {
+  display: inline-block;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  text-align: center;
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-ice-3);
+  color: var(--color-navy-1);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+/* button variants */
+.btn:hover {
+  background-color: var(--color-ice-2);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-ice);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-ice-3);
+  outline-offset: 2px;
+}
+
+.btn:disabled,
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn--primary {
+  background-color: var(--color-ice-3);
+  color: var(--color-navy-1);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-ice-2);
+}
+
+.btn--secondary {
+  background-color: var(--color-lavender-3);
+  color: var(--color-navy-1);
+}
+
+.btn--secondary:hover {
+  background-color: var(--color-lavender-2);
+}
+
+.btn--frost {
+  background-color: transparent;
+  border-color: var(--color-ice-3);
+  color: var(--color-ice-2);
+}
+
+.btn--frost:hover {
+  background-color: var(--color-ice-5);
+  border-color: var(--color-ice-2);
+  color: var(--color-ice-1);
+}
+
+.btn--danger {
+  background-color: var(--color-navy-2);
+  color: var(--color-ice-5);
+}
+
+.btn--danger:hover {
+  background-color: var(--color-navy-1);
+}
+
+.btn--sm {
+  font-size: var(--font-size-sm);
+  padding: var(--space-xs) var(--space-md);
+}
+
+.btn--lg {
+  font-size: var(--font-size-h5);
+  padding: var(--space-md) var(--space-xl);
+}
+
+/* base class for cards */
+.card {
+  display: block;
+  background-color: white;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+/* card elements */
+.card__header {
+  padding: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-ice-5);
+}
+
+.card__header h1,
+.card__header h2,
+.card__header h3,
+.card__header h4,
+.card__header h5,
+.card__header h6 {
+  margin: 0;
+  color: var(--color-navy-1);
+}
+
+.card__body {
+  padding: var(--space-lg);
+}
+
+.card__footer {
+  padding: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-silver-5);
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-2);
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+}
+
+/* card variants */
+.card--frost {
+  background: linear-gradient(135deg, var(--color-ice-6) 0%, white 100%);
+  border-color: var(--color-ice-4);
+}
+
+.card--frost .card__header {
+  background-color: var(--color-ice-4);
+}
+
+.card--shadow {
+  border: none;
+  box-shadow: var(--shadow-lg);
+}
+
+.card--shadow:hover {
+  box-shadow: var(--shadow-ice);
+  transform: translateY(-2px);
+}
+
+.card--bordered {
+  border: 2px solid var(--color-ice-3);
+  box-shadow: none;
+}
+
+/* base class for alert components */
+.alert {
+  display: block;
+  padding: var(--space-md) var(--space-lg);
+  border-left: 4px solid;
+  border-radius: var(--radius-sm);
+  margin: var(--space-md) 0;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+/* optional alert element: title */
+.alert__title {
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--space-xs) 0;
+  font-size: var(--font-size-base);
+}
+/* alert modifiers */
+.alert--info {
+  background-color: var(--color-ice-5);
+  border-left-color: var(--color-ice-3);
+  color: var(--color-navy-2);
+}
+
+.alert--info .alert__title {
+  color: var(--color-ice-1);
+}
+
+.alert--success {
+  background-color: var(--color-lavender-5);
+  border-left-color: var(--color-lavender-3);
+  color: var(--color-navy-2);
+}
+
+.alert--success .alert__title {
+  color: var(--color-lavender-1);
+}
+
+.alert--warning {
+  background-color: var(--color-silver-5);
+  border-left-color: var(--color-silver-2);
+  color: var(--color-navy-2);
+}
+
+.alert--warning .alert__title {
+  color: var(--color-navy-1);
+}
+
+.alert--danger {
+  background-color: var(--color-navy-5);
+  border-left-color: var(--color-navy-2);
+  color: var(--color-navy-1);
+}
+
+.alert--danger .alert__title {
+  color: var(--color-navy-1);
+}
+
+/* base class for badge components */
+.badge {
+  display: inline-block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+/* badge variants */
+.badge--primary {
+  background-color: var(--color-ice-3);
+  color: var(--color-navy-1);
+}
+
+.badge--secondary {
+  background-color: var(--color-lavender-3);
+  color: white;
+}
+
+.badge--success {
+  background-color: var(--color-lavender-4);
+  color: var(--color-lavender-1);
+}
+
+.badge--danger {
+  background-color: var(--color-navy-2);
+  color: var(--color-ice-5);
+}
+
+.badge--frost {
+  background-color: transparent;
+  border: 1px solid var(--color-ice-3);
+  color: var(--color-ice-2);
+}
+
+.badge--neutral {
+  background-color: var(--color-silver-3);
+  color: var(--color-navy-2);
+}
+
+/* base class for accordion components, works with html <details> element */
+.accordion {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordion__item:last-child {
+  border-bottom: none;
+}
+
+.accordion__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-ice-6);
+  border: none;
+  text-align: left;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy-1);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.accordion__header:hover {
+  background-color: var(--color-ice-5);
+}
+
+.accordion__header:focus-visible {
+  outline: 2px solid var(--color-ice-3);
+  outline-offset: -2px;
+}
+
+.accordion__header::after {
+  content: '+';
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform var(--transition-fast);
+}
+
+.accordion__item[open] .accordion__header::after {
+  transform: rotate(45deg);
+}
+
+.accordion__content {
+  padding: var(--space-md) var(--space-lg);
+  background-color: white;
+}
+/* base class for progress components */
+.progress {
+  width: 100%;
+  height: var(--space-lg);
+  background-color: var(--color-ice-6);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress__bar {
+  height: 100%;
+  background-color: var(--color-ice-3);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-navy-1);
+}
+/* progress variants and modifiers*/
+.progress--sm {
+  height: var(--space-sm);
+}
+
+.progress--lg {
+  height: var(--space-xl);
+}
+
+.progress--success .progress__bar {
+  background-color: var(--color-lavender-3);
+}
+
+.progress--warning .progress__bar {
+  background-color: var(--color-silver-2);
+}
+
+.progress--frost .progress__bar {
+  background: linear-gradient(90deg, var(--color-ice-4), var(--color-ice-2));
+  box-shadow: 0 0 10px rgba(100, 150, 200, 0.3);
+}
+

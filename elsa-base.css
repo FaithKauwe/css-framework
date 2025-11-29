@@ -1,4 +1,6 @@
-/* use tokens to target specific html elements and apply css properties */
+/* use tokens to target specific html elements and apply css properties. this is a classless
+base framework and developers can write plain html then elsa css gets applied aoutmatically
+ */
 * {
   box-sizing: border-box;
 }
