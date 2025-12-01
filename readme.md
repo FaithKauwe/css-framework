@@ -200,6 +200,60 @@ Elsa prioritizes keyboard users and screen reader accessibility:
 - No `outline: none` without proper replacements
 - Hover states complemented by focus states (not hover-only interactions)
 
+### ✅ Component Library
+
+Elsa includes a comprehensive set of BEM-named components:
+
+**Required Components:**
+- **Buttons** (`.btn`) - Multiple variants (primary, secondary, frost, danger), sizes (sm, lg), and states
+- **Cards** (`.card`) - Header, body, footer elements with frost, shadow, and bordered variants
+- **Alerts** (`.alert`) - Info, success, warning, and danger message variants
+- **Badges** (`.badge`) - Inline labels with multiple color variants
+
+**Optional Components:**
+- **Accordion** (`.accordion`) - Collapsible sections using native `<details>` elements
+- **Progress Bars** (`.progress`) - Visual progress indicators with frost variant and sizing options
+
+All components:
+- Follow BEM naming convention (Block, Element, Modifier)
+- Use design tokens exclusively (no hard-coded values)
+- Include accessible focus states and ARIA-friendly markup
+- Support composition (components work together seamlessly)
+
+### ✅ Utility Classes
+
+Over 100 single-purpose utility classes for quick styling adjustments:
+
+**Display Utilities:**
+- `.flex`, `.grid`, `.block`, `.inline`, `.inline-block`, `.hidden`
+
+**Spacing Utilities:**
+- Margin: `.mt-sm`, `.mb-lg`, `.ml-md`, `.mr-xs`, `.m-0`, `.m-auto`
+- Padding: `.p-sm`, `.p-lg`, `.pt-md`, `.pb-lg`, `.px-md`, `.py-sm`, `.p-0`
+
+**Text Utilities:**
+- Alignment: `.text-left`, `.text-center`, `.text-right`
+- Color: `.text-muted`, `.text-primary`, `.text-secondary`
+- Size: `.text-sm`, `.text-base`, `.text-lg`
+- Weight: `.font-normal`, `.font-medium`, `.font-semibold`, `.font-bold`
+- Style: `.italic`, `.uppercase`
+
+**Layout Utilities:**
+- Containers: `.container`, `.container-sm`
+- Sizing: `.w-full`, `.w-auto`, `.h-full`, `.h-auto`
+- Flexbox: `.flex-row`, `.flex-col`, `.items-center`, `.justify-between`, `.gap-md`, `.flex-wrap`
+
+**Color Utilities:**
+- Background: `.bg-white`, `.bg-ice`, `.bg-frost`, `.bg-lavender`, `.bg-navy`
+- Foreground: `.fg-white`, `.fg-muted`, `.fg-primary`, `.fg-navy`
+
+**Visual Utilities:**
+- Border radius: `.rounded-sm`, `.rounded-md`, `.rounded-lg`, `.rounded-full`
+- Shadows: `.shadow-sm`, `.shadow-md`, `.shadow-lg`, `.shadow-ice`
+- Borders: `.border`, `.border-ice`, `.border-none`
+
+All utilities use design tokens and sit in the `@layer utilities` for predictable cascade behavior.
+
 ## Browser Support
 
 Elsa uses modern CSS features:
@@ -234,11 +288,11 @@ The `overrides` layer has highest priority, allowing you to adjust any token wit
 
 Potential additions for future versions:
 
-- Component classes (`.btn`, `.card`, `.alert`, etc.)
-- Utility classes (`.text-center`, `.mt-2`, etc.)
 - Dark theme support (`.theme-dark`)
-- Print stylesheet
+- Print stylesheet (`@media print`)
 - Additional color palettes
+- More component variants
+- Animation library
 
 ## Credits
 

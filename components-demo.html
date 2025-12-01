@@ -73,7 +73,8 @@
     <a href="#alerts">Alerts</a> ·
     <a href="#badges">Badges</a> ·
     <a href="#accordion">Accordion</a> ·
-    <a href="#progress">Progress Bars</a>
+    <a href="#progress">Progress Bars</a> ·
+    <a href="#utilities">Utilities</a>
   </nav>
 </header>
 
@@ -353,22 +354,151 @@
     </div>
   </section>
 
+  <section id="utilities" class="demo-section">
+    <h2>Utility Classes</h2>
+    <p>Single-purpose utilities for quick styling adjustments. Over 100 utilities across 6 categories!</p>
+
+    <div class="demo-item">
+      <div class="demo-label">Display & Layout Utilities</div>
+      <div class="flex gap-md items-center">
+        <div class="bg-ice p-md rounded-sm">
+          <code class="inline">.flex .gap-md .items-center</code>
+        </div>
+        <div class="bg-lavender p-md rounded-sm">
+          Flexbox layout!
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Spacing Utilities</div>
+      <div class="bg-frost p-lg rounded-md">
+        <p class="mt-sm mb-md">
+          <code class="inline">.mt-sm .mb-md</code> - Margin top small, margin bottom medium
+        </p>
+        <div class="bg-white p-xl rounded-sm">
+          <code class="inline">.p-xl</code> - Extra large padding
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Text Utilities</div>
+      <p class="text-center text-primary text-lg font-bold">
+        <code class="inline">.text-center .text-primary .text-lg .font-bold</code>
+      </p>
+      <p class="text-right text-muted text-sm italic">
+        <code class="inline">.text-right .text-muted .text-sm .italic</code>
+      </p>
+      <p class="uppercase font-semibold">
+        <code class="inline">.uppercase .font-semibold</code>
+      </p>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Container Utilities</div>
+      <div class="container-sm bg-ice p-md rounded-md">
+        <p class="text-center"><code class="inline">.container-sm</code> - Centered, max 40rem width</p>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Color Utilities (Background + Foreground)</div>
+      <div class="flex gap-sm flex-wrap">
+        <div class="bg-white fg-navy p-md rounded-sm border">
+          <code class="inline">.bg-white .fg-navy</code>
+        </div>
+        <div class="bg-ice fg-navy p-md rounded-sm">
+          <code class="inline">.bg-ice .fg-navy</code>
+        </div>
+        <div class="bg-frost fg-primary p-md rounded-sm">
+          <code class="inline">.bg-frost .fg-primary</code>
+        </div>
+        <div class="bg-lavender fg-navy p-md rounded-sm">
+          <code class="inline">.bg-lavender .fg-navy</code>
+        </div>
+        <div class="bg-navy fg-white p-md rounded-sm">
+          <code class="inline">.bg-navy .fg-white</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Visual Utilities (Rounded & Shadows)</div>
+      <div class="flex gap-md flex-wrap items-end">
+        <div class="bg-white p-md rounded-sm shadow-sm">
+          <code class="inline">.rounded-sm .shadow-sm</code>
+        </div>
+        <div class="bg-white p-md rounded-md shadow-md">
+          <code class="inline">.rounded-md .shadow-md</code>
+        </div>
+        <div class="bg-white p-md rounded-lg shadow-lg">
+          <code class="inline">.rounded-lg .shadow-lg</code>
+        </div>
+        <div class="bg-white p-md rounded-full shadow-ice">
+          <code class="inline">.rounded-full .shadow-ice</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Border Utilities</div>
+      <div class="flex gap-md flex-wrap">
+        <div class="p-md border rounded-sm">
+          <code class="inline">.border</code>
+        </div>
+        <div class="p-md border-ice rounded-sm">
+          <code class="inline">.border-ice</code>
+        </div>
+        <div class="card border-none p-md">
+          <code class="inline">.border-none</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Real-World Example: Building with Utilities</div>
+      <div class="bg-white border-ice rounded-lg shadow-md p-lg">
+        <h3 class="text-center text-primary mt-0">Profile Card</h3>
+        <div class="flex flex-col items-center gap-md">
+          <div class="bg-navy rounded-full" style="width: 80px; height: 80px;"></div>
+          <div class="text-center">
+            <p class="font-bold mb-xs">Jane Doe</p>
+            <p class="text-muted text-sm">Web Developer</p>
+          </div>
+          <div class="flex gap-sm">
+            <span class="badge badge--primary">Designer</span>
+            <span class="badge badge--success">Developer</span>
+          </div>
+          <button class="btn btn--primary w-full mt-md">View Profile</button>
+        </div>
+      </div>
+      <p class="text-sm text-muted mt-md">
+        Built using: <code class="inline">.bg-white .border-ice .rounded-lg .shadow-md .p-lg .flex .flex-col .items-center .gap-md .text-center .font-bold .w-full</code> and more!
+      </p>
+    </div>
+  </section>
+
   <section class="demo-section">
-    <h2>Combining Components</h2>
-    <p>Components work beautifully together!</p>
+    <h2>Combining Components & Utilities</h2>
+    <p>Components provide structure, utilities provide flexibility. Use them together for powerful layouts!</p>
 
     <div class="demo-grid">
       <div class="card card--shadow">
-        <div class="card__header">
-          <h3>Download Progress <span class="badge badge--primary">Active</span></h3>
+        <div class="card__header text-center">
+          <h3 class="mb-xs">Download Progress <span class="badge badge--primary">Active</span></h3>
+          <p class="text-sm text-muted">Processing your file...</p>
         </div>
         <div class="card__body">
-          <p>Your file is being processed...</p>
-          <div class="progress progress--frost">
+          <div class="progress progress--frost mb-md">
             <div class="progress__bar" style="width: 65%;">65%</div>
           </div>
+          <div class="flex justify-between text-sm">
+            <span class="text-muted">3.2 MB of 5 MB</span>
+            <span class="font-semibold text-primary">~2 min left</span>
+          </div>
         </div>
-        <div class="card__footer">
+        <div class="card__footer flex gap-sm justify-end">
           <button class="btn btn--sm btn--frost">Cancel</button>
           <button class="btn btn--sm btn--primary">View Details</button>
         </div>
@@ -376,12 +506,48 @@
 
       <div class="card card--frost">
         <div class="card__body">
-          <div class="alert alert--success">
+          <div class="alert alert--success mb-md">
             <p class="alert__title">Welcome!</p>
             <p>Your Elsa framework is ready to use.</p>
           </div>
-          <button class="btn btn--primary" style="width: 100%;">Get Started</button>
+          <div class="flex flex-col gap-sm">
+            <button class="btn btn--primary w-full">Get Started</button>
+            <button class="btn btn--frost w-full">Read Docs</button>
+          </div>
         </div>
+      </div>
+
+      <div class="card card--bordered">
+        <div class="card__header bg-ice">
+          <div class="flex items-center justify-between">
+            <h3 class="m-0">Settings</h3>
+            <span class="badge badge--success">Updated</span>
+          </div>
+        </div>
+        <div class="card__body">
+          <div class="flex items-start gap-md mb-md">
+            <div class="bg-navy rounded-full" style="width: 40px; height: 40px;"></div>
+            <div class="flex-col">
+              <p class="font-semibold mb-xs">Enable Notifications</p>
+              <p class="text-sm text-muted">Receive alerts about important updates</p>
+            </div>
+          </div>
+          <div class="flex justify-between items-center p-sm bg-frost rounded-sm">
+            <span class="text-sm">Dark Mode</span>
+            <span class="badge badge--neutral">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-xl p-lg bg-ice rounded-lg border-ice">
+      <h3 class="text-center text-primary mt-0">🎨 Framework Power</h3>
+      <p class="text-center text-muted mb-lg">This entire section uses only components + utilities. No custom CSS needed!</p>
+      <div class="flex justify-center gap-md flex-wrap">
+        <span class="badge badge--primary">BEM Components</span>
+        <span class="badge badge--frost">Utility Classes</span>
+        <span class="badge badge--success">Design Tokens</span>
+        <span class="badge badge--secondary">Ice Queen Magic ❄️</span>
       </div>
     </div>
   </section>
