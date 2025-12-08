@@ -284,6 +284,29 @@ To customize Elsa, override tokens in your own CSS:
 
 The `overrides` layer has highest priority, allowing you to adjust any token without editing framework files.
 
+## Development
+
+### Running Locally (Important for Web Components!)
+
+Web Components use JavaScript modules (`type="module"`), which are blocked by browser CORS policy when opening HTML files directly (`file://` protocol).
+
+**To view Web Components, you must run a local web server:**
+
+#### Mac/Linux:
+```bash
+cd /path/to/css-framework
+python3 -m http.server 8000
+```
+
+Then open: `http://localhost:8000/web-components-demo.html`
+
+#### Alternative (if Python not available):
+- Use VS Code's "Live Server" extension
+- Use Node.js `npx serve`
+- Use any local development server
+
+**Note:** CSS-only pages (`index.html`, `components-demo.html`) work fine when opened directly. Only Web Components require a server.
+
 ## Future Enhancements
 
 Potential additions for future versions:

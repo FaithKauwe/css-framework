@@ -1,4 +1,4 @@
-// elsa-callout is a web component (a static box with customizable slots), the custom tag <elsa-callout>  and it's variants can be used 
+// elsa-callout is a web component (a permanent box with customizable slots), the custom tag <elsa-callout>  and it's variants can be used 
 // user can use the provided slots (icon, title, content) to customize the callout 
 
 // special method that the browser calls when custom element is added to the DOM
@@ -28,7 +28,7 @@ class ElsaCallout extends HTMLElement {
     if (icon) {
       const iconContainer = document.createElement('div');
       iconContainer.className = 'elsa-callout__icon';
-      iconContainer.appendChild(icon);
+      iconContainer.appendChild(icon.cloneNode(true));
       wrapper.appendChild(iconContainer);
     }
     
@@ -36,8 +36,9 @@ class ElsaCallout extends HTMLElement {
     contentContainer.className = 'elsa-callout__content';
     
     if (title) {
-      title.className = 'elsa-callout__title';
-      contentContainer.appendChild(title);
+      const titleClone = title.cloneNode(true);
+      titleClone.className = 'elsa-callout__title';
+      contentContainer.appendChild(titleClone);
     }
     
     const body = document.createElement('div');

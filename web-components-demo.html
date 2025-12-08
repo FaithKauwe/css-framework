@@ -57,6 +57,9 @@
   </style>
   
   <script type="module" src="components/elsa-callout.js"></script>
+  <script type="module" src="components/elsa-toggle.js"></script>
+  <script type="module" src="components/elsa-snowfall.js"></script>
+  <script type="module" src="components/elsa-snow-control.js"></script>
 </head>
 <body>
 
@@ -188,14 +191,109 @@
     </div>
   </section>
 
+  <section id="toggle" class="demo-section">
+    <h2>Toggle Component (Interactive)</h2>
+    <p>An interactive toggle switch with Ice Queen styling. Click or use keyboard (Space/Enter) to toggle. Emits custom <code class="inline">elsa-toggle</code> events.</p>
+
+    <div class="demo-item">
+      <div class="demo-label">Basic Toggle</div>
+      <elsa-toggle>Enable Notifications</elsa-toggle>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Checked by Default</div>
+      <elsa-toggle checked>Dark Mode</elsa-toggle>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Disabled State</div>
+      <elsa-toggle disabled>Premium Feature (Coming Soon)</elsa-toggle>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Without Label</div>
+      <elsa-toggle checked></elsa-toggle>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Interactive Demo</div>
+      <div class="card">
+        <div class="card__body">
+          <div class="flex items-center justify-between mb-md">
+            <div>
+              <h4 class="m-0">Snowfall Effect</h4>
+              <p class="text-sm text-muted mb-0">Toggle animated snowflakes</p>
+            </div>
+            <elsa-toggle id="snowDemo" checked></elsa-toggle>
+          </div>
+          <div class="alert alert--info" id="toggleStatus">
+            <p class="text-sm mb-0">Status: <strong id="statusText">On</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Listening to Events</div>
+      <div class="card card--frost">
+        <div class="card__body">
+          <h4>Custom Events</h4>
+          <p>The toggle emits a <code class="inline">elsa-toggle</code> event when changed:</p>
+          <pre>toggle.addEventListener('elsa-toggle', (e) => {
+  console.log('Checked:', e.detail.checked);
+});</pre>
+          <p class="text-sm text-muted">Try toggling the switch above and check the console!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Usage Code</div>
+      <pre>&lt;elsa-toggle checked&gt;
+  Enable Feature
+&lt;/elsa-toggle&gt;
+
+&lt;script&gt;
+  const toggle = document.querySelector('elsa-toggle');
+  toggle.addEventListener('elsa-toggle', (e) => {
+    console.log('Toggled:', e.detail.checked);
+  });
+&lt;/script&gt;</pre>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Accessibility Features</div>
+      <div class="card">
+        <div class="card__body">
+          <h4>Built-in Accessibility</h4>
+          <ul>
+            <li>✅ <strong>ARIA role:</strong> <code class="inline">role="switch"</code></li>
+            <li>✅ <strong>ARIA state:</strong> <code class="inline">aria-checked</code> updates automatically</li>
+            <li>✅ <strong>Keyboard support:</strong> Space and Enter keys toggle</li>
+            <li>✅ <strong>Focus visible:</strong> Ice blue outline on focus</li>
+            <li>✅ <strong>Disabled state:</strong> Faded and non-interactive</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="demo-section">
     <h2>More Components Coming Soon!</h2>
     <div class="flex gap-md flex-wrap">
-      <span class="badge badge--neutral">Toggle (Interactive)</span>
+      <span class="badge badge--success">Toggle (Interactive) ✅</span>
       <span class="badge badge--neutral">Snow Control (Interactive)</span>
       <span class="badge badge--neutral">Snowfall (Smart)</span>
     </div>
   </section>
+
+  <script>
+    document.getElementById('snowDemo').addEventListener('elsa-toggle', (e) => {
+      const statusText = document.getElementById('statusText');
+      statusText.textContent = e.detail.checked ? 'On' : 'Off';
+      console.log('Snow demo toggled:', e.detail.checked);
+    });
+  </script>
 
 </main>
 
