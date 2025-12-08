@@ -406,3 +406,95 @@ classes to their html, using the BEM structure for class names */
   box-shadow: 0 0 10px rgba(100, 150, 200, 0.3);
 }
 
+.elsa-callout {
+  display: block;
+  padding: var(--space-lg);
+  border-left: 4px solid;
+  border-radius: var(--radius-md);
+  margin: var(--space-md) 0;
+  background-color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.elsa-callout__wrapper {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.elsa-callout__icon {
+  font-size: var(--font-size-h3);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.elsa-callout__content {
+  flex: 1;
+}
+
+.elsa-callout__title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--space-sm) 0;
+  line-height: var(--line-height-tight);
+}
+
+.elsa-callout__body {
+  line-height: var(--line-height-base);
+}
+
+.elsa-callout__body > *:first-child {
+  margin-top: 0;
+}
+
+.elsa-callout__body > *:last-child {
+  margin-bottom: 0;
+}
+
+.elsa-callout--info {
+  background-color: var(--color-ice-6);
+  border-left-color: var(--color-ice-3);
+}
+
+.elsa-callout--info .elsa-callout__title {
+  color: var(--color-ice-1);
+}
+
+.elsa-callout--success {
+  background-color: var(--color-lavender-5);
+  border-left-color: var(--color-lavender-3);
+}
+
+.elsa-callout--success .elsa-callout__title {
+  color: var(--color-lavender-1);
+}
+
+.elsa-callout--warning {
+  background-color: var(--color-silver-5);
+  border-left-color: var(--color-silver-2);
+}
+
+.elsa-callout--warning .elsa-callout__title {
+  color: var(--color-navy-1);
+}
+
+.elsa-callout--danger {
+  background-color: var(--color-navy-5);
+  border-left-color: var(--color-navy-2);
+}
+
+.elsa-callout--danger .elsa-callout__title {
+  color: var(--color-navy-1);
+}
+
+.elsa-callout--frost {
+  background: linear-gradient(135deg, var(--color-ice-6) 0%, white 100%);
+  border-left-color: var(--color-ice-3);
+  box-shadow: var(--shadow-ice);
+}
+
+.elsa-callout--frost .elsa-callout__title {
+  color: var(--color-ice-1);
+}
+

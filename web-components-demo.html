@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elsa Web Components Demo ❄️</title>
+  <link rel="stylesheet" href="elsa.css">
+  <style>
+    body {
+      max-width: 80rem;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .demo-section {
+      margin-block: 3rem;
+      padding: 2rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background-color: white;
+    }
+
+    .demo-section h2 {
+      margin-top: 0;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--color-ice-3);
+    }
+
+    .demo-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--color-gray-2);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    code.inline {
+      background-color: var(--color-silver-5);
+      padding: 0.125rem 0.375rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+    }
+
+    pre {
+      background-color: var(--color-navy-1);
+      color: var(--color-ice-5);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      font-size: 0.875rem;
+    }
+  </style>
+  
+  <script type="module" src="components/elsa-callout.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>Elsa Web Components ❄️</h1>
+  <p>Custom elements built with vanilla JavaScript that integrate with the Elsa CSS framework. These components use design tokens, emit custom events, and follow web standards.</p>
+  <nav>
+    <a href="components-demo.html">← CSS Components</a> ·
+    <a href="#callout">Callout</a> ·
+    <a href="#toggle">Toggle</a> ·
+    <a href="#snow-control">Snow Control</a> ·
+    <a href="#snowfall">Snowfall</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="callout" class="demo-section">
+    <h2>Callout Component (Static)</h2>
+    <p>A static component that uses <strong>slots</strong> to allow custom content. Similar to alerts but designed for persistent, important information.</p>
+
+    <div class="demo-item">
+      <div class="demo-label">Info Variant</div>
+      <elsa-callout variant="info">
+        <span slot="icon">ℹ️</span>
+        <h3 slot="title">What are Slots?</h3>
+        <p>Slots are placeholders where users can insert their own content. This icon, title, and body text are all provided by the user!</p>
+      </elsa-callout>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Success Variant</div>
+      <elsa-callout variant="success">
+        <span slot="icon">✅</span>
+        <h3 slot="title">Framework Complete!</h3>
+        <p>You've successfully built a complete CSS framework with design tokens, BEM components, utility classes, and now Web Components!</p>
+      </elsa-callout>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Warning Variant</div>
+      <elsa-callout variant="warning">
+        <span slot="icon">⚠️</span>
+        <h3 slot="title">Important Notice</h3>
+        <p>Always test your Web Components across different browsers. Modern features may need polyfills for older browsers.</p>
+      </elsa-callout>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Danger Variant</div>
+      <elsa-callout variant="danger">
+        <span slot="icon">🚨</span>
+        <h3 slot="title">Critical Warning</h3>
+        <p>This action cannot be undone. Make sure you have backed up your data before proceeding.</p>
+      </elsa-callout>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Frost Variant (Ice Queen Special!)</div>
+      <elsa-callout variant="frost">
+        <span slot="icon">❄️</span>
+        <h3 slot="title">Ice Queen Magic</h3>
+        <p>The frost variant uses a gradient background and the special <code class="inline">--shadow-ice</code> token for that magical icy glow!</p>
+      </elsa-callout>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Without Icon</div>
+      <elsa-callout variant="info">
+        <h3 slot="title">Flexible Slots</h3>
+        <p>Icons are optional! Slots can be left empty if you don't need them.</p>
+      </elsa-callout>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Rich Content in Body</div>
+      <elsa-callout variant="success">
+        <span slot="icon">📚</span>
+        <h3 slot="title">Components Can Contain Anything</h3>
+        <p>The body slot accepts any HTML:</p>
+        <ul>
+          <li>Lists</li>
+          <li>Links like <a href="#">this one</a></li>
+          <li>Even <strong>formatted text</strong></li>
+        </ul>
+        <button class="btn btn--sm btn--primary">Action Button</button>
+      </elsa-callout>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Usage Code</div>
+      <pre>&lt;elsa-callout variant="info"&gt;
+  &lt;span slot="icon"&gt;ℹ️&lt;/span&gt;
+  &lt;h3 slot="title"&gt;Your Title&lt;/h3&gt;
+  &lt;p&gt;Your content goes here&lt;/p&gt;
+&lt;/elsa-callout&gt;</pre>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">How Slots Work</div>
+      <div class="card">
+        <div class="card__body">
+          <h4>Named Slots</h4>
+          <p>The <code class="inline">&lt;elsa-callout&gt;</code> component defines three slots:</p>
+          <ul>
+            <li><code class="inline">slot="icon"</code> - Optional icon (any HTML, not just emoji!)</li>
+            <li><code class="inline">slot="title"</code> - Optional heading</li>
+            <li>Default slot (no name) - Body content</li>
+          </ul>
+          <p>You provide the content, the component provides the structure and styling!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Component Features</div>
+      <div class="card card--frost">
+        <div class="card__body">
+          <h4>What Makes This a Web Component?</h4>
+          <ul>
+            <li>✅ <strong>Custom Element:</strong> <code class="inline">&lt;elsa-callout&gt;</code> is registered with the browser</li>
+            <li>✅ <strong>Slots:</strong> Users can insert their own content in designated areas</li>
+            <li>✅ <strong>Attributes:</strong> <code class="inline">variant</code> attribute changes styling</li>
+            <li>✅ <strong>Lifecycle:</strong> Uses <code class="inline">connectedCallback()</code> to initialize</li>
+            <li>✅ <strong>Design Tokens:</strong> Styles use your framework's CSS custom properties</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>More Components Coming Soon!</h2>
+    <div class="flex gap-md flex-wrap">
+      <span class="badge badge--neutral">Toggle (Interactive)</span>
+      <span class="badge badge--neutral">Snow Control (Interactive)</span>
+      <span class="badge badge--neutral">Snowfall (Smart)</span>
+    </div>
+  </section>
+
+</main>
+
+<footer style="margin-top: 4rem; padding-top: 2rem; border-top: 2px solid var(--color-ice-3); text-align: center;">
+  <p><strong>Elsa Web Components</strong> ❄️</p>
+  <p>Vanilla JavaScript, Web Standards, Ice Queen Magic</p>
+  <p><a href="components-demo.html">View CSS Components →</a></p>
+</footer>
+
+</body>
+</html>
+
