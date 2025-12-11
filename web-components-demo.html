@@ -409,15 +409,26 @@ snowfall.addEventListener('elsa-snowfall-change', (e) => {
   <elsa-snowfall density="50" speed="5"></elsa-snowfall>
 
   <script>
-    // Toggle demo event listener
+    // Get snowfall component reference (used by both toggle and event listeners)
+    const snowfall = document.querySelector('elsa-snowfall');
+
+    // Toggle demo event listener - actually controls the snowfall!
     document.getElementById('snowDemo').addEventListener('elsa-toggle', (e) => {
       const statusText = document.getElementById('statusText');
       statusText.textContent = e.detail.checked ? 'On' : 'Off';
       console.log('Snow demo toggled:', e.detail.checked);
+      
+      // Actually control the snowfall animation
+      if (snowfall) {
+        if (e.detail.checked) {
+          snowfall.start();
+        } else {
+          snowfall.stop();
+        }
+      }
     });
 
     // Log snow events to console
-    const snowfall = document.querySelector('elsa-snowfall');
     if (snowfall) {
       snowfall.addEventListener('elsa-snowfall-change', (e) => {
         console.log('❄️ Snowfall changed:', e.detail);
