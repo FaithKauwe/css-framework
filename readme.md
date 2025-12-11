@@ -220,6 +220,97 @@ All components:
 - Include accessible focus states and ARIA-friendly markup
 - Support composition (components work together seamlessly)
 
+### ✅ Web Components
+
+Elsa includes four custom Web Components built with vanilla JavaScript that integrate seamlessly with the CSS framework:
+
+**Component 1: `<elsa-callout>` — Visual, Static Component**
+
+**Problem it solves:**
+The callout component provides a way to display important, persistent information to users without the ephemeral nature of alerts or toasts. Unlike dismissible alerts, callouts are meant to stay visible as part of the page content, drawing attention to key information, tips, warnings, or success messages.
+
+**Why it belongs in the design system:**
+Every UI framework needs a way to highlight important information without disrupting the user's flow. Callouts are perfect for documentation pages, onboarding flows, and informational sections where context matters. They're gentler than modals but more prominent than plain text.
+
+**How it uses the framework's styles:**
+The callout component is fully integrated with Elsa's design token system. It uses `--space-lg` for padding, `--radius-md` for border radius, `--shadow-sm` for elevation, and pulls from all four color families (ice, lavender, silver, navy) for its variants. The typography uses `--font-family-display` for titles and respects the framework's line-height tokens for readability.
+
+**Future improvements:**
+- Add a dismissible variant with a close button
+- Support for `::part()` to allow external styling of internal elements
+- Optional icon positioning (left, top, or inline)
+- Animation on first appearance
+
+---
+
+**Component 2: `<elsa-toggle>` — Interactive Component**
+
+**Problem it solves:**
+Toggle switches are essential for binary settings (on/off, enabled/disabled). They provide clearer visual feedback than checkboxes for settings and preferences, making the current state immediately obvious at a glance. The component handles all the complexity of keyboard navigation, ARIA attributes, and state management automatically.
+
+**Why it belongs in the design system:**
+Modern applications need elegant controls for settings panels, feature flags, and user preferences. A well-designed toggle that matches the framework's aesthetic ensures consistency across all interactive elements. It's especially useful in dashboards and admin interfaces where users make frequent configuration changes.
+
+**How it uses the framework's styles:**
+The toggle uses the framework's Ice Queen color palette extensively. The track transitions from `--color-silver-3` (unchecked) to `--color-ice-3` (checked), with borders using complementary shades. The thumb animation uses `--transition-base` for smooth movement, and the component respects `--radius-full` for perfect circles. Focus states use `--color-ice-3` for the outline, maintaining visual consistency with other interactive elements.
+
+**Future improvements:**
+- Size variants (small, medium, large)
+- Loading state with animated indicator
+- Color variants (success, warning, danger)
+- Optional labels inside the toggle itself
+
+---
+
+**Component 3: `<elsa-snowfall>` — Smart Component**
+
+**Problem it solves:**
+The snowfall component demonstrates how design systems can include delightful, ambient animations that enhance user experience without being intrusive. It provides a full-screen canvas-based animation system that's performant (60fps), responsive, and controllable. More broadly, it showcases how to build dynamic visual effects that work across different screen sizes and devices.
+
+**Why it belongs in the design system:**
+While not every project needs falling snow, the pattern is valuable: a non-blocking, purely decorative element that adds personality and polish. This same architecture could power confetti celebrations, particle effects, ambient backgrounds, or seasonal themes. It proves the framework can handle both utilitarian components and moments of delight.
+
+**How it uses the framework's styles:**
+The snowfall component doesn't use CSS directly (it draws on canvas), but it respects the framework's philosophy of controllability and token-driven design. It can be controlled via attributes (like design tokens) and exposes a JavaScript API that follows the same patterns as other framework utilities. The component integrates seamlessly with the CSS by using `position: fixed`, `pointer-events: none`, and high z-index to layer above content without interfering with layout or interactions.
+
+**Future improvements:**
+- Different particle shapes (stars, hearts, leaves for other seasons)
+- Wind effects and turbulence
+- Performance mode for lower-end devices
+- Color variants to match different themes
+- Collision detection with page elements
+- Particle pooling for better memory management
+
+---
+
+**Bonus Component: `<elsa-snow-control>` — Interactive Component**
+
+**Problem it solves:**
+The snow control component demonstrates inter-component communication—a critical pattern in modern web development. It provides an intuitive slider interface to control another component's behavior in real-time, showing how components can work together as a system rather than in isolation.
+
+**Why it belongs in the design system:**
+Component ecosystems are more powerful than individual components. The snow control showcases how to build "controller" components that manipulate other parts of the UI. This pattern applies to media players, animation controls, settings panels, and any scenario where one component needs to orchestrate another.
+
+**How it uses the framework's styles:**
+The slider component uses an ice-blue gradient background (`--color-ice-6` to `--color-ice-2`) with custom-styled thumb elements that feature `--shadow-ice` for visual depth. The label uses `--font-family-display`, and spacing follows `--space-sm`. The hover and focus states use framework transition tokens for smooth interactions. Even browser-specific pseudo-elements (`::-webkit-slider-thumb`, `::-moz-range-thumb`) are styled to match the Ice Queen aesthetic.
+
+**Future improvements:**
+- Preset buttons (Light, Medium, Heavy)
+- Visual preview of intensity
+- Support for controlling multiple targets
+- Keyboard shortcuts for quick adjustments
+- Remember last setting in localStorage
+
+---
+
+**Integration Features:**
+- All components use the `elsa-` prefix for consistency
+- Components dispatch custom events for inter-component communication
+- Full keyboard accessibility with ARIA support
+- Slots allow flexible content insertion
+- Attributes control behavior (like design tokens for styling)
+- See `web-components-demo.html` for live examples
+
 ### ✅ Utility Classes
 
 Over 100 single-purpose utility classes for quick styling adjustments:
