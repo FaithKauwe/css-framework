@@ -278,21 +278,158 @@
     </div>
   </section>
 
-  <section class="demo-section">
-    <h2>More Components Coming Soon!</h2>
-    <div class="flex gap-md flex-wrap">
-      <span class="badge badge--success">Toggle (Interactive) ✅</span>
-      <span class="badge badge--neutral">Snow Control (Interactive)</span>
-      <span class="badge badge--neutral">Snowfall (Smart)</span>
+  <section id="snowfall" class="demo-section">
+    <h2>Snowfall Component (Smart/Dynamic) ❄️</h2>
+    <p>An animated snowfall effect using Canvas API. This component creates and animates individual snowflakes with realistic physics!</p>
+
+    <div class="demo-item">
+      <div class="demo-label">Live Snowfall Demo</div>
+      <div class="card card--frost">
+        <div class="card__body">
+          <h4>Let It Snow! ❄️</h4>
+          <p>A full-screen snowfall effect is now active. Look around the page!</p>
+          <p class="text-sm text-muted">The snowflakes use Canvas API for smooth 60fps animation with up to 150 snowflakes.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">How It Works</div>
+      <div class="card">
+        <div class="card__body">
+          <h4>Smart Component Features</h4>
+          <ul>
+            <li>🎨 <strong>Canvas API:</strong> High-performance rendering</li>
+            <li>✨ <strong>Realistic Physics:</strong> Each snowflake has unique speed, size, and opacity</li>
+            <li>🔄 <strong>Infinite Loop:</strong> Snowflakes reset when off-screen</li>
+            <li>📐 <strong>Responsive:</strong> Adapts to window resize</li>
+            <li>⚡ <strong>60 FPS:</strong> Uses requestAnimationFrame</li>
+            <li>🎛️ <strong>Controllable:</strong> Adjust density and speed via attributes or JavaScript</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Attributes</div>
+      <pre>density="50"   &lt;!-- 0-100, number of snowflakes --&gt;
+speed="5"      &lt;!-- 1-10, fall speed --&gt;
+paused         &lt;!-- Boolean, stops animation --&gt;</pre>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">JavaScript API</div>
+      <pre>const snow = document.querySelector('elsa-snowfall');
+
+// Control via methods
+snow.setIntensity(75, 8);  // density, speed
+snow.start();
+snow.stop();
+
+// Or via properties
+snow.density = 100;
+snow.speed = 10;</pre>
     </div>
   </section>
 
+  <section id="snow-control" class="demo-section">
+    <h2>Snow Control Component (Interactive) 🎚️</h2>
+    <p>An interactive slider to control the snowfall intensity. Demonstrates component-to-component communication!</p>
+
+    <div class="demo-item">
+      <div class="demo-label">Live Control</div>
+      <div class="card card--frost" style="background: linear-gradient(135deg, var(--color-ice-4) 0%, var(--color-lavender-5) 100%);">
+        <div class="card__body">
+          <elsa-snow-control target="elsa-snowfall" initial-value="50">
+            ❄️ Snowfall Intensity
+          </elsa-snow-control>
+          <p class="text-sm text-muted mt-md mb-0">Drag the slider to control how much snow falls!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">How Component Communication Works</div>
+      <div class="card" style="background: linear-gradient(135deg, var(--color-ice-4) 0%, var(--color-lavender-5) 100%);">
+        <div class="card__body">
+          <h4>Smart Connections</h4>
+          <ol>
+            <li><strong>Control finds Snowfall:</strong> Uses <code class="inline">target</code> attribute as CSS selector</li>
+            <li><strong>Slider moves:</strong> Triggers input event</li>
+            <li><strong>Control updates Snowfall:</strong> Calls <code class="inline">snowfall.setIntensity()</code></li>
+            <li><strong>Snowfall adjusts:</strong> Creates/removes snowflakes and updates speeds</li>
+            <li><strong>Events emitted:</strong> Both components emit custom events for other listeners</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Usage</div>
+      <pre>&lt;elsa-snowfall density="50" speed="5"&gt;&lt;/elsa-snowfall&gt;
+
+&lt;elsa-snow-control target="elsa-snowfall" initial-value="50"&gt;
+  Snow Intensity
+&lt;/elsa-snow-control&gt;</pre>
+    </div>
+
+    <div class="demo-item">
+      <div class="demo-label">Event Listening</div>
+      <div class="card card--frost">
+        <div class="card__body">
+          <h4>Custom Events</h4>
+          <p>Both components emit events you can listen to:</p>
+          <pre>// Listen to control changes
+control.addEventListener('elsa-snow-change', (e) => {
+  console.log('Intensity:', e.detail.intensity);
+});
+
+// Listen to snowfall changes
+snowfall.addEventListener('elsa-snowfall-change', (e) => {
+  console.log('Snowflakes:', e.detail.count);
+});</pre>
+          <p class="text-sm text-muted">Open your console and move the slider above to see events!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>All Components Complete! 🎉</h2>
+    <div class="flex gap-md flex-wrap">
+      <span class="badge badge--success">Callout (Static) ✅</span>
+      <span class="badge badge--success">Toggle (Interactive) ✅</span>
+      <span class="badge badge--success">Snow Control (Interactive) ✅</span>
+      <span class="badge badge--success">Snowfall (Smart) ✅</span>
+    </div>
+    <p class="mt-md">You've built a complete Web Components library! 🚀❄️</p>
+  </section>
+
+  <!-- The actual snowfall component! -->
+  <elsa-snowfall density="50" speed="5"></elsa-snowfall>
+
   <script>
+    // Toggle demo event listener
     document.getElementById('snowDemo').addEventListener('elsa-toggle', (e) => {
       const statusText = document.getElementById('statusText');
       statusText.textContent = e.detail.checked ? 'On' : 'Off';
       console.log('Snow demo toggled:', e.detail.checked);
     });
+
+    // Log snow events to console
+    const snowfall = document.querySelector('elsa-snowfall');
+    if (snowfall) {
+      snowfall.addEventListener('elsa-snowfall-change', (e) => {
+        console.log('❄️ Snowfall changed:', e.detail);
+      });
+    }
+
+    const snowControl = document.querySelector('elsa-snow-control');
+    if (snowControl) {
+      snowControl.addEventListener('elsa-snow-change', (e) => {
+        console.log('🎚️ Control changed:', e.detail);
+      });
+    }
   </script>
 
 </main>
